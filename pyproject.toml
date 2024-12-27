@@ -1,0 +1,22 @@
+[build-system]
+requires = ['poetry-core']
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "dap"
+version = "1.0"
+authors = [
+  { name="Dan Lynn", email="dan.lynn.ct@gmail.com" },
+]
+description = "Generalized dependency tracking and transitive reduction"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/studdansen/dap"
+Issues = "https://github.com/studdansen/dap/issues"
