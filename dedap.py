@@ -246,7 +246,7 @@ def topo_sorted_nodes(links: set[Link], verbosity: int = 0) -> tuple:
 	>>> sorted_nodes = topo_sorted_nodes(circular_links)
 	Traceback (most recent call last):
 		...
-	dap.TopoSortError: topological sort operation failed; unprocessed nodes = ['A', 'B', 'F', 'Z']
+	dedap.TopoSortError: topological sort operation failed; unprocessed nodes = ['A', 'B', 'F', 'Z']
 	
 	.. graphviz::
 	   
