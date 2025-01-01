@@ -110,7 +110,7 @@ def node_adjs(links: set[Link]) -> NodeAdjs:
 	>>> na['C']
 	{'C'}
 	'''
-	na = NodeAdjs()
+	na: NodeAdjs = NodeAdjs()
 	for link in links:
 		if not link.first in na:
 			na[link.first] = set()
@@ -131,8 +131,8 @@ class TopoSortError(Exception):
 		:param unp_nodes: Nodes not processed by the failed topological sort
 			operation.
 		'''
-		self.unp_nodes = sorted(unp_nodes)
-		self.message = ('topological sort operation failed; '
+		self.unp_nodes: list = sorted(unp_nodes)
+		self.message: str = ('topological sort operation failed; '
 			f'unprocessed nodes = {self.unp_nodes}')
 	def __str__(self):
 		return self.message
@@ -293,7 +293,7 @@ def topo_sorted_nodes(links: set[Link], verbosity: int = 0) -> tuple:
 	for link in links:
 		assert sorted_nodes.index(link.first) < sorted_nodes.index(link.second)
 	
-	return sorted_nodes
+	return tuple(sorted_nodes)
 
 def dfs(na: NodeAdjs, start: Node) -> set[Node]:
 	'''
