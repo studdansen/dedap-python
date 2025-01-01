@@ -9,12 +9,14 @@ equivalent DAGs sans redundant links.
 On Windows:
 
 ```cmd
+py -m pip install --upgrade pip
 py -m pip install dedap
 ```
 
 On other systems (e.g., Linux, macOS):
 
 ```sh
+python3 -m pip install --upgrade pip
 python3 -m pip install dedap
 ```
 
