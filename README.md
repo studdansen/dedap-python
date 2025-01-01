@@ -37,4 +37,7 @@ mypy dedap
 ## Future
 
 + Bind [C++ dedap library](https://github.com/studdansen/dedap) into this
-  Python package.
+  Python package. Call it `cdedap`.
+  
+  + Write benchmark tests to compare the C++-based implementation (`cdedap`) to
+    the pure Python implementation.
