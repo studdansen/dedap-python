@@ -1,22 +1,31 @@
 [build-system]
-requires = ['poetry-core']
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools >= 68.1.2"]
+build-backend = "setuptools.build_meta"
 
 [project]
-name = "dap"
+name = "dedap"
 version = "1.0"
 authors = [
-  { name="Dan Lynn", email="dan.lynn.ct@gmail.com" },
+	{ name="Dan Lynn", email="dan.lynn.ct@gmail.com" },
 ]
 description = "Generalized dependency tracking and transitive reduction"
 readme = "README.md"
-requires-python = ">=3.8"
+license = {file = "LICENSE"}
+requires-python = ">=3.7"
 classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
+	"License :: OSI Approved :: MIT License",
+	"Operating System :: OS Independent",
+	"Programming Language :: Python :: 3",
+	"Programming Language :: Python :: 3.7",
+	"Programming Language :: Python :: 3.12",
 ]
 
 [project.urls]
-Homepage = "https://github.com/studdansen/dap"
-Issues = "https://github.com/studdansen/dap/issues"
+Homepage = "https://github.com/studdansen/dedap"
+Issues = "https://github.com/studdansen/dedap/issues"
+
+[project.optional-dependencies]
+test = ["mypy"]
+
+[tool.mypy]
+python_version = "3.7"
