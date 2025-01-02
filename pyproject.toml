@@ -29,3 +29,6 @@ test = ["mypy"]
 
 [tool.mypy]
 python_version = "3.7"
+
+[tool.setuptools.packages]
+find = {}
