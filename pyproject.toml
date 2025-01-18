@@ -29,7 +29,7 @@ Issues = "https://github.com/studdansen/dedap/issues"
 test = ["mypy"]
 
 [tool.mypy]
-python_version = "3.7"
+python_version = "3.8" # minimum allowed for `mypy`
 
 [tool.setuptools.packages]
 find = {}

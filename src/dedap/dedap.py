@@ -5,6 +5,7 @@ Python implementation of transitive reduction.
 
 from dataclasses import dataclass
 from pprint import pprint, pformat
+from typing import Callable, Dict, List, Set, Type
 
 
 
@@ -21,17 +22,17 @@ class Link:
 	second: Node
 	'''Second node.'''
 
-NodeAdjs = dict[Node, set[Node]]
+NodeAdjs = Dict[Node, Set[Node]]
 '''Lookup of nodes and their associated sets of nodes toward which they are
 directly linked.'''
 
-NodeDegs = dict[Node, int]
+NodeDegs = Dict[Node, int]
 '''Lookup of nodes and their "degrees" of depth within a directed graph.
 
 A node's degree is equal to the number of nodes directly preceding it.
 If a node has no prior nodes in a graph, then it has degree 0.'''
 
-def node_adjs(links: set[Link]) -> NodeAdjs:
+def node_adjs(links: Set[Link]) -> NodeAdjs:
 	'''
 	Dictionary relating nodes in a directed graph to the nodes toward which
 	they're linked.
@@ -124,7 +125,7 @@ class TopoSortError(Exception):
 	Exception raised if topological sorting of the nodes in a set of links
 	fails.
 	'''
-	def __init__(self, unp_nodes: set[Node]):
+	def __init__(self, unp_nodes: Set[Node]):
 		'''
 		Constructor.
 		
@@ -199,7 +200,7 @@ def node_degs(node_adjs: NodeAdjs) -> NodeDegs:
 			nd[adj] += 1
 	return nd
 
-def topo_sorted_nodes(links: set[Link], verbosity: int = 0) -> tuple:
+def topo_sorted_nodes(links: Set[Link], verbosity: int = 0) -> tuple:
 	'''
 	Topologically sorts nodes in a directed graph represented by
 	uni-directional links between nodes.
@@ -295,7 +296,7 @@ def topo_sorted_nodes(links: set[Link], verbosity: int = 0) -> tuple:
 	
 	return tuple(sorted_nodes)
 
-def dfs(na: NodeAdjs, start: Node) -> set[Node]:
+def dfs(na: NodeAdjs, start: Node) -> Set[Node]:
 	'''
 	Performs a depth-first search of nodes in a directed graph.
 	
@@ -306,8 +307,8 @@ def dfs(na: NodeAdjs, start: Node) -> set[Node]:
 	This implementation was copied and adapted from :cite:p:`scheufler:2021` on
 	May 16, 2024.
 	'''
-	visited: set[Node] = set()
-	stack: list[Node] = [start]
+	visited: Set[Node] = set()
+	stack: List[Node] = [start]
 	while stack:
 		node = stack.pop()
 		if node in visited:
@@ -318,7 +319,7 @@ def dfs(na: NodeAdjs, start: Node) -> set[Node]:
 				stack.append(n)
 	return {n for n in visited if n != start}
 	
-def transitive_reduction(links: set[Link], verbosity: int = 0) -> set[Link]:
+def transitive_reduction(links: Set[Link], verbosity: int = 0) -> Set[Link]:
 	'''
 	Calculates the transitive reduction for a directed graph.
 	
@@ -364,9 +365,9 @@ def transitive_reduction(links: set[Link], verbosity: int = 0) -> set[Link]:
 	'''
 	sn = topo_sorted_nodes(links, verbosity) # raises exception if not acyclic
 	na = node_adjs(links)
-	descendants: dict[Node, set[Node]] = dict()
-	checkCount: dict[Node, int] = dict()
-	reduced_links: set[Link] = set()
+	descendants: Dict[Node, Set[Node]] = dict()
+	checkCount: Dict[Node, int] = dict()
+	reduced_links: Set[Link] = set()
 	for u in sn:
 		u_adjs = na.get(u, set())
 		for v in na.get(u, set()):
