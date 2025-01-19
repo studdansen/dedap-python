@@ -5,7 +5,9 @@ dedap-python
    :maxdepth: 2
    :caption: Contents:
 
+.. bibliography::
 
+.. todolist::
 
 Indices and tables
 ==================
