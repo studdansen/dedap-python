@@ -201,7 +201,7 @@ def node_degs(node_adjs: NodeAdjs) -> NodeDegs:
 	return nd
 
 def topo_sorted_nodes(links: Set[Link], verbosity: int = 0) -> tuple:
-	'''
+	r'''
 	Topologically sorts nodes in a directed graph represented by
 	uni-directional links between nodes.
 	
@@ -224,7 +224,7 @@ def topo_sorted_nodes(links: Set[Link], verbosity: int = 0) -> tuple:
 	There are a few possible ways to sort these nodes, so a one-to-one
 	comparison between the expected and actual node lists is unfeasible.
 	
-	.. graphviz::
+	.. digraph:: sorted_acyclic_nodes
 	   
 	   D -> A -> B -> Z -> H;
 	   B -> F;
@@ -249,7 +249,7 @@ def topo_sorted_nodes(links: Set[Link], verbosity: int = 0) -> tuple:
 		...
 	dedap.TopoSortError: topological sort operation failed; unprocessed nodes = ['A', 'B', 'F', 'Z']
 	
-	.. graphviz::
+	.. digraph:: sorted_cyclic_nodes
 	   
 	   D -> A -> B -> Z -> A;
 	   E -> Z;
