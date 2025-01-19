@@ -29,6 +29,10 @@ jobs:
         run: |
           python3 -m doctest src/dedap/dedap.py
       
+      - name: Run static type checks
+        run: |
+          mypy src/dedap/dedap.py
+      
       - name: Build release distributions
         run: |
           # NOTE: put your own distribution build steps here.
