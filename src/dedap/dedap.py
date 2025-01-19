@@ -22,11 +22,11 @@ class Link:
 	second: Node
 	'''Second node.'''
 
-NodeAdjs = Dict[Node, Set[Node]]
+NodeAdjs = dict[Node, set[Node]]
 '''Lookup of nodes and their associated sets of nodes toward which they are
 directly linked.'''
 
-NodeDegs = Dict[Node, int]
+NodeDegs = dict[Node, int]
 '''Lookup of nodes and their "degrees" of depth within a directed graph.
 
 A node's degree is equal to the number of nodes directly preceding it.
