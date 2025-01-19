@@ -3,4 +3,5 @@
 **.egg-info
 dist
 build*
+doc/_api
 doc/_build

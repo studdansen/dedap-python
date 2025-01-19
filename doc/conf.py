@@ -3,6 +3,13 @@ Configuration file for documentation of ``dedap``.
 '''
 
 from datetime import datetime
+import os
+from pathlib import Path
+import sys
+
+SRC_DPATH = Path(__file__).parent.parent / 'src'
+# ~ SRC_DPATH = Path(__file__).parent.parent / 'src' / 'dedap'
+sys.path.insert(0, str(SRC_DPATH.resolve()))
 
 project = 'dedap'
 copyright = f'{datetime.today().year}, Dan Lynn'
@@ -11,6 +18,7 @@ release = '1.0'
 
 extensions = [
 	'sphinx.ext.autodoc',
+	'sphinx.ext.graphviz',
 	'sphinx.ext.todo',
 	'sphinxcontrib.bibtex',
 ]
