@@ -34,6 +34,20 @@ To check the static type consistency, use `mypy` if it's available:
 mypy dedap
 ```
 
+## Documentation
+
+To build the HTML documentation:
+
+```sh
+make -C doc html
+```
+
+To build the PDF documentation:
+
+```sh
+make -C doc latexpdf
+```
+
 ## Future
 
 + Bind [C++ dedap library](https://github.com/studdansen/dedap) into this
