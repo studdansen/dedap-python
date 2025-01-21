@@ -16,6 +16,16 @@ Node = object
 class Link:
 	'''
 	A uni-directional link between two nodes in a directed graph.
+	
+	>>> link1 = Link(first='A', second='B')
+	>>> link2 = Link('A', 'B')
+	>>> link1 == link2
+	True
+	>>> hash(link1) == hash(link2)
+	True
+	>>> link3 = Link('B', 'A')
+	>>> link1 == link3
+	False
 	'''
 	first: Node
 	'''First node.'''
