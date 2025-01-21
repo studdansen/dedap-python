@@ -25,14 +25,12 @@ jobs:
         with:
           python-version: "3.7"
       
-      - name: Run unit tests
+      - name: Run unit tests in local directory
         run: |
           python3 -m doctest src/dedap/dedap.py
       
       - name: Build release distributions
         run: |
-          # NOTE: put your own distribution build steps here.
-          python3 -m pip install build
           python3 -m build
 
       - name: Upload distributions

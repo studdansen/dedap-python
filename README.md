@@ -22,6 +22,15 @@ python3 -m pip install dedap
 
 ## Testing
 
+This module has [doctest](https://docs.python.org/3/library/doctest.html)-style
+unit tests within its docstrings.
+
+To run this module's tests from the source directory:
+
+```sh
+python3 -m doctest src/dedap/dedap.py
+```
+
 To run this module's tests after installation:
 
 ```sh
