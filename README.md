@@ -4,6 +4,10 @@
 DAGs are used for scheduling operations, and transitive reduction produces
 equivalent DAGs sans redundant links.
 
+The module is only dependent on the Python standard library for normal use.
+It does need external modules for building the installable package, for
+checking static type consistency, and for building the documentation.
+
 ## Installation
 
 On Windows:
@@ -51,7 +55,7 @@ To build the HTML documentation:
 make -C doc html
 ```
 
-To build the PDF documentation:
+To build the PDF documentation (assuming all LaTeX dependencies are installed):
 
 ```sh
 make -C doc latexpdf
