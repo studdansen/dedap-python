@@ -28,19 +28,19 @@ unit tests within its docstrings.
 To run this module's tests from the source directory:
 
 ```sh
-python3 -m doctest src/dedap/dedap.py
+python3 -m doctest dedap/dedap.py
 ```
 
 To run this module's tests after installation:
 
 ```sh
-python3 -m doctest dedap
+python3 -m doctest dedap/dedap.py
 ```
 
 To check the static type consistency, use `mypy` if it's available:
 
 ```sh
-mypy dedap
+mypy dedap/dedap.py
 ```
 
 ## Documentation

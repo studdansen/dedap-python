@@ -7,8 +7,7 @@ import os
 from pathlib import Path
 import sys
 
-SRC_DPATH = Path(__file__).parent.parent / 'src'
-# ~ SRC_DPATH = Path(__file__).parent.parent / 'src' / 'dedap'
+SRC_DPATH = Path(__file__).parent.parent / 'dedap'
 sys.path.insert(0, str(SRC_DPATH.resolve()))
 
 project = 'dedap'

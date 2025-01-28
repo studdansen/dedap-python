@@ -28,7 +28,7 @@ if errorlevel 9009 (
 
 if "%1" == "" goto help
 
-%SPHINXAPIDOC% --output-dir _api "%SOURCEDIR%/../src/dedap"
+%SPHINXAPIDOC% --output-dir _api "%SOURCEDIR%/../dedap"
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 goto end
 

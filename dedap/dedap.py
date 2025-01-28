@@ -235,6 +235,7 @@ def topo_sorted_nodes(links: Set[Link], verbosity: int = 0) -> tuple:
 	comparison between the expected and actual node lists is unfeasible.
 	
 	.. digraph:: sorted_acyclic_nodes
+	   :caption: Sorted nodes of a directed acyclic graph.
 	   
 	   D -> A -> B -> Z -> H;
 	   B -> F;
@@ -260,6 +261,7 @@ def topo_sorted_nodes(links: Set[Link], verbosity: int = 0) -> tuple:
 	dedap.TopoSortError: topological sort operation failed; unprocessed nodes = ['A', 'B', 'F', 'Z']
 	
 	.. digraph:: sorted_cyclic_nodes
+	   :caption: Unsortable nodes of a directed cyclic graph.
 	   
 	   D -> A -> B -> Z -> A;
 	   E -> Z;
@@ -342,7 +344,8 @@ def transitive_reduction(links: Set[Link], verbosity: int = 0) -> Set[Link]:
 	.. attention::
 	   
 	   A transitive reduction *is* possible for a directed graph with cycles,
-	   but it is not be supported by this function.
+	   but it is not supported by this function. There is no guarantee that
+	   this will change.
 	
 	This implementation was copied and adapted from :cite:p:`scheufler:2021` on
 	May 16, 2024.
