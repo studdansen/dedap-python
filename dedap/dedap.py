@@ -1,6 +1,13 @@
 #!/bin/env python3
 '''
 Python implementation of transitive reduction.
+
+.. todo::
+   
+   Make this module capable of handling graphs that have cycles. Split a single
+   set of links into subsets, each acyclic on its own, and then effectively
+   reconstitute them for the calling application. This feature may be used when
+   processing parser grammars.
 '''
 
 from dataclasses import dataclass
@@ -384,22 +391,13 @@ def transitive_reduction(links: Set[Link], verbosity: int = 0) -> Set[Link]:
 	for u in sn:
 		u_adjs = na.get(u, set())
 		for v in na.get(u, set()):
-			
 			if not v in u_adjs:
 				continue
 			if not v in descendants:
 				_visited = dfs(na, v)
 				descendants[v] = _visited
 			u_adjs = {d for d in u_adjs if not d in descendants[v]}
-			
-			# ~ checkCount[v] = max(checkCount[v]-1,0) if v in checkCount else 0
-			# ~ assert checkCount[v] >= 0, checkCount[v]
-			# ~ if checkCount[v] == 0:
-				# ~ descendants = {_v:e for _v,e in descendants.items() if v != _v}
-			
-			# can the code block above be severely reduced and simplified?
 			descendants = {_v:e for _v,e in descendants.items() if v != _v}
-			
 		for v in u_adjs:
 			_matching_links = list(filter(lambda x: x.first == u
 				and x.second == v, links))
