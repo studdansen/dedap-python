@@ -10,6 +10,8 @@ Python implementation of transitive reduction.
    processing parser grammars.
 '''
 
+__version__ = '2025.10'
+
 from dataclasses import dataclass
 from pprint import pprint, pformat
 from typing import Callable, Dict, List, Set, Type

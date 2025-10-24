@@ -1,35 +1,44 @@
+# Package setup configuration.
+#
+# ERROR: This all requires twine 1.10, but only twine 1.09 is installed on
+# Ubuntu.
+
 [build-system]
-requires = ["setuptools >= 68.1.2"]
+requires = ["setuptools >= 68.1.2", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "dedap"
-version = "0.9"
+version = "2025.10"
 authors = [
 	{ name="Dan Lynn", email="dan.lynn.ct@gmail.com" },
 ]
-description = "Generalized dependency tracking and transitive reduction"
-readme = "README.md"
-license = {file = "LICENSE"}
+description = "Topological sorting and transitive reduction algorithms"
+license = "MIT"
+license-files = ["LICENSE"]
+readme = {file = "README.md", content-type = "text/markdown"}
 requires-python = ">=3.7"
+keywords = [
+	"transitive", "reduction",
+	"topological", "sort", "sorting",
+]
 classifiers = [
-	"License :: OSI Approved :: MIT License",
+	"Development Status :: 3 - Alpha",
+	"Intended Audience :: Developers",
 	"Operating System :: OS Independent",
 	"Programming Language :: Python :: 3",
 	"Programming Language :: Python :: 3.7",
-	"Programming Language :: Python :: 3.12",
+		# `dataclasses` module was added in Python 3.7
 	"Topic :: Scientific/Engineering :: Information Analysis",
 ]
 
 [project.urls]
 Homepage = "https://github.com/studdansen/dedap"
+Repository = "https://github.com/studdansen/dedap-python.git"
 Issues = "https://github.com/studdansen/dedap/issues"
 
-[project.optional-dependencies]
-test = ["mypy"]
+# [project.optional-dependencies]
+# test = ["mypy"]
 
-[tool.mypy]
-python_version = "3.8" # minimum allowed for `mypy`
-
-[tool.setuptools.packages]
-find = {}
+# [tool.mypy]
+# python_version = "3.8" # minimum allowed for `mypy`
