@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dedap"
-version = "2025.10"
+version = "2026.04"
 authors = [
 	{ name="Dan Lynn", email="dan.lynn.ct@gmail.com" },
 ]
