@@ -28,7 +28,7 @@ jobs:
       - name: Build release distributions
         run: |
           python3 -m pip install --upgrade pip
-          pip install setuptools wheel
+          python3 -m pip install setuptools wheel
           python3 -m build
 
       - name: Upload distributions
