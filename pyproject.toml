@@ -33,9 +33,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/studdansen/dedap"
+Homepage = "https://github.com/studdansen/dedap-python"
 Repository = "https://github.com/studdansen/dedap-python.git"
-Issues = "https://github.com/studdansen/dedap/issues"
+Issues = "https://github.com/studdansen/dedap-python/issues"
 
 # [project.optional-dependencies]
 # test = ["mypy"]
