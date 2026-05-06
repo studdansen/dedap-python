@@ -1,8 +1,8 @@
 # dedap-python
 
-**dedap** implements transitive reduction for directed acyclic graphs.
+**dedap** implements transitive reduction for acyclic directed graphs.
 DAGs are used for scheduling operations, and transitive reduction produces
-equivalent DAGs sans redundant links.
+equivalent DAGs without redundant links.
 
 The module is only dependent on the Python standard library for normal use.
 It does need external modules for building the installable package, for
@@ -23,6 +23,40 @@ On other systems (e.g., Linux, macOS):
 python3 -m pip install --upgrade pip
 python3 -m pip install dedap
 ```
+
+## Basic Usage
+
+A graph is a collection of nodes with unidirectional links between them. A
+node can be a string, a number, or any other Python object that can be compared
+by value.
+
+The nodes comprising a collection of these inter-node links can be sorted into
+a new tuple topologically. That is, if some node ``p`` is a "first" node that
+comes before some "second" node ``q`` either directly or indirectly among the
+links, then ``p`` will come before ``q`` in the newly created node sequence.
+
+```python3
+>>> from dedap import Link, topo_sorted_nodes
+>>> links = [Link(first='B', second='D'), Link(first='A', second='B'), \
+...   Link('B', 'C'), Link('C', 'D'), Link('A', 'E')]
+>>> topo_sorted_nodes(links)
+('A', 'E', 'B', 'C', 'D')
+
+```
+
+With simplified syntax (not yet supported):
+
+```python3
+>>> from dedap import topo_sorted_nodes
+>>> links = [('B', 'D'), ('A', 'B'), ('B', 'C'), ('C', 'D'), ('A', 'E')]
+>>> topo_sorted_nodes(links)
+('A', 'E', 'B', 'C', 'D')
+
+```
+
+If a collection of links cannot be sorted topologically, it means that the
+graph composed of those links is not acyclic. At this stage of the module's
+development, only directed *acyclic* graphs can be transitively reduced.
 
 ## Testing
 
